@@ -1,7 +1,7 @@
 ## Oddities
 
 * Happens to be on Postgres, could just as easily by MySQL
-* Will work better if rake demo:populate_db is run first
+* Will work better if <code>rake demo:populate_db</code> is run first
 
 ## Foolish assumptions
 
