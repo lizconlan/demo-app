@@ -1,0 +1,33 @@
+%form{:action => "/survey", :method => "post"}
+  .row
+    %h3 Q1. Before we begin, please tell us the name of your constituency
+  
+  .row
+    %p 
+      =styled_flash
+  
+  .row
+    %label.label-control{:for => "constituencySelect"} Select your constituency from the dropdown list
+    %select.form-control{:id => "constituencySelect", :name => "constituencySelect"}
+    
+      %option{:value => ""} -- Please select an option --
+      - @constituencies.each do |constituency|
+        %option{:value => constituency.id}= constituency.name
+  
+  .row
+    %p
+      %br
+  
+  .row
+    %label.label-control{:for => "constituencySearch"} Or search by postcode or constituency name      
+    
+  .row
+    .col-xs-6
+      .form-group
+        
+        %input.form-control{:type => "text", :id => "constituencySearch", :name => "constituencySearch"}
+    .col-xs-6
+      %button{:type => "submit", :class => "btn btn-default", :id => "searchButton", :name => "searchButton"} Search
+  
+  .row
+    %button{:type => "submit", :class => "btn btn-primary pull-right", :id => "nextButton", :name => "nextButton"} Next

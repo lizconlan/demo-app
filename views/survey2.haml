@@ -1,0 +1,18 @@
+%form{:method => "post"}
+  .row
+    %h3 Q2. Do you intend to vote?
+  
+  .row
+    %p 
+      =styled_flash
+  
+  .row
+    .radio
+      %label
+        %input{:type => "radio", :name => "intentOptions", :id => "intentYes", :value => "yes"} Yes
+    .radio
+      %label
+        %input{:type => "radio", :name => "intentOptions", :id => "intentNo", :value => "no"} No
+  
+  .row
+    %button{:type => "submit", :class => "btn btn-primary pull-right", :id => "nextButton", :name => "nextButton"} Next

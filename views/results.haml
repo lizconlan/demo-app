@@ -1,0 +1,63 @@
+.row
+  - if @constituency
+    %h3 Results (#{@constituency.name})
+  - else
+    %h3 Results (overall)
+
+.col-xs-8
+  .row  
+    %h4
+      Voters vs Non-voters:
+    %p
+      - if @constituency
+        Intending to vote: #{percentage(SurveyResponse.voters.where(constituency_id: @constituency.id).count, SurveyResponse.where(constituency_id: @constituency.id).count)}%
+      - else
+        Intending to vote: #{percentage(SurveyResponse.voters.count, SurveyResponse.count)}%
+    
+    %p
+      - if @constituency
+        Not intending to vote: #{percentage(SurveyResponse.non_voters.where(constituency_id: @constituency.id).count, SurveyResponse.where(constituency_id: @constituency.id).count)}%
+      - else
+        Not intending to vote: #{percentage(SurveyResponse.non_voters.count, SurveyResponse.count)}%
+    
+  .row  
+    %h4 Of the people who said they'd vote:
+    
+    %p
+      - if @constituency
+        Conservative: #{percentage(SurveyResponse.con.where(constituency_id: @constituency.id).count, SurveyResponse.voters.where(constituency_id: @constituency.id).count)}%
+      - else
+        Conservative: #{percentage(SurveyResponse.con.count, SurveyResponse.voters.count)}%
+    %p
+      - if @constituency
+        Labour: #{percentage(SurveyResponse.lab.where(constituency_id: @constituency.id).count, SurveyResponse.voters.where(constituency_id: @constituency.id).count)}%
+      - else
+        Labour: #{percentage(SurveyResponse.lab.count, SurveyResponse.voters.count)}%
+    %p
+      - if @constituency
+        Liberal Democrat: #{percentage(SurveyResponse.lib.where(constituency_id: @constituency.id).count, SurveyResponse.voters.where(constituency_id: @constituency.id).count)}%
+      - else
+        Liberal Democrat: #{percentage(SurveyResponse.lib.count, SurveyResponse.voters.count)}%
+    %p
+      - if @constituency
+        Other: #{percentage(SurveyResponse.other.where(constituency_id: @constituency.id).count, SurveyResponse.voters.where(constituency_id: @constituency.id).count)}%
+      - else
+        Other: #{percentage(SurveyResponse.other.count, SurveyResponse.voters.count)}%
+  .row
+    %p
+      %br
+        - if @constituency
+          (Based on the responses of #{SurveyResponse.where(constituency_id: @constituency.id).count} people surveyed)
+        - else
+          (Based on the responses of #{SurveyResponse.count} people surveyed)
+        
+.col-xs-4
+  %form
+    .row
+      %label.label-control{:for => "constituencySelect"} To see results from a specific constituency, select it from the list below:
+      %select.form-control{:id => "constituencySelect", :name => "constituency"}
+        %option -- View All --
+        - @constituencies.each do |constituency|
+          %option{:value => constituency.name, :selected => (@constituency && constituency.name == @constituency.name) }= constituency.name
+    %br
+    %button{:type => "submit", :class => "btn btn-default pull-right"} Select

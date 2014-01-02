@@ -1,0 +1,24 @@
+%form{:method => "post"}
+  .row
+    %h3 Q3. Which party gets your vote?
+  
+  .row
+    %p 
+      =styled_flash
+  
+  .row
+    .radio
+      %label
+        %input{:type => "radio", :name => "partyVote", :id => "voteCon", :value => "con"} Conservative
+    .radio
+      %label
+        %input{:type => "radio", :name => "partyVote", :id => "voteLab", :value => "lab"} Labour
+    .radio
+      %label
+        %input{:type => "radio", :name => "partyVote", :id => "voteLib", :value => "lib"} Liberal Democrat
+    .radio
+      %label
+        %input{:type => "radio", :name => "partyVote", :id => "voteOther", :value => "other"} Other
+  
+  .row
+    %button{:type => "submit", :class => "btn btn-primary pull-right", :id => "nextButton", :name => "nextButton"} Next

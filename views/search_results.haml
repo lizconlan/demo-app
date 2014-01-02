@@ -1,0 +1,10 @@
+.row
+  %h3
+    Possible constituencies found
+
+- @results.each do |result|
+  .row
+    %h4
+      %a{:href => "/accept-constituency/#{result.id}"}= result.name
+    %p
+      Sitting MP #{result.sitting_mp}
