@@ -6,7 +6,7 @@
 ## Foolish assumptions
 
 * That the current constituency names/boundaries will remain the same between elections (which is fairly unlikely)
-* That no-one will cheat and respond to the survey twice (coding a cookie fix would have taken too long for the purposes of this exercise - and for testing - this is being claimed as a "Feature")
+* That no-one will cheat and respond to the survey more than once (saving the cookie would be the obvious quick fix but for the purposes of being able to playtest the app, I'm claiming this as a "Feature")
 
 ## If only there'd been more time...
 
