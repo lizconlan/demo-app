@@ -10,7 +10,7 @@
 
 ## If only there'd been more time...
 
-* It doesn't look very nice. And pushing text around with <br> tags is a pretty rubbish tactic.
+* It doesn't look very nice. And pushing text around with BR tags is a pretty rubbish tactic.
 * As is not having any real navigation. Sorry.
 * Handling 404s within the app would have been a good idea.
 * As would detailed specs - started writing them then realised it was eating too much time :(
