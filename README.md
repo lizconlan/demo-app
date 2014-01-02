@@ -1,14 +1,14 @@
-== Oddities
+## Oddities
 
 * Happens to be on Postgres, could just as easily by MySQL
 * Will work better if rake demo:populate_db is run first
 
-== Foolish assumptions
+## Foolish assumptions
 
 * That the current constituency names/boundaries will remain the same between elections (which is fairly unlikely)
 * That no-one will cheat and respond to the survey twice (coding a cookie fix would have taken too long for the purposes of this exercise - and for testing - this is being claimed as a "Feature")
 
-== If only there'd been more time...
+## If only there'd been more time...
 
 * It doesn't look very nice. And pushing text around with <br> tags is a pretty rubbish tactic.
 * As is not having any real navigation. Sorry.
